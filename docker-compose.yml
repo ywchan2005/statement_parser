@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  dev:
+    build:
+      dockerfile: ../docker/Dockerfile
+      context: ./${workdir}
+      target: dev
+    volumes:
+      - ./${workdir}:/app
+      - ./data:/data
+      - ./cache:/cache
+      - ./tmp:/tmp
+    working_dir: /app
+    tty: true
